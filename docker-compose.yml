@@ -1,0 +1,8 @@
+services:
+  monitoring:
+    container_name: monitoring
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - PYTHONUNBUFFERED=1
