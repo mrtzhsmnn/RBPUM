@@ -56,7 +56,7 @@ class Uptime:
         This method pings the server to check if it is online.
         """
         try:
-            resp = requests.get(url, timeout=0.1)
+            resp = requests.get(url, timeout=1)
         except Exception as e:
             self.log.warning(f"Error while pinging {url}. Error: {e}")
             return False
