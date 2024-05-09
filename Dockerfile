@@ -7,6 +7,7 @@ COPY ./src /home/monitor/
 RUN apk --no-cache -U add \
     python3 \
     py3-pip \
+    tzdata \
     curl \
     python3-dev && \
     addgroup -g 2000 monitor && \
@@ -18,7 +19,8 @@ RUN apk --no-cache -U add \
     python-dotenv \
     pytz && \
     cd /home/monitor && \
-    chown monitor:monitor -R /home/monitor/* 
+    chown monitor:monitor -R /home/monitor/* &&\
+    ln -s /usr/share/zoneinfo/Europe/Brussels /etc/localtime
 
 WORKDIR /home/monitor
 USER monitor:monitor
